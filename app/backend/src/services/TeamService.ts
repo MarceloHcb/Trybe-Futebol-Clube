@@ -2,10 +2,8 @@ import Teams from '../models/Teams';
 import { ITeamModel } from '../Interfaces/teams/ITeamModel';
 import { ServiceResponse } from '../Interfaces/ServiceResponse';
 import { ITeam } from '../Interfaces/teams/ITeam';
-import SequelizeTeams from '../database/models/SequelizeTeam';
 
 export default class TeamService {
-  private model = SequelizeTeams;
   constructor(
     private teamModel: ITeamModel = new Teams(),
   ) { }

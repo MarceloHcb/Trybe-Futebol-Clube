@@ -1,4 +1,5 @@
 import { ID } from '.';
+import { IUser } from './users/IUser';
 
 export interface ICRUDModelCreator<T> {
   create(data: Partial<T>): Promise<T>,
@@ -20,3 +21,7 @@ export interface ICRUDModelDeleter {
 export interface ICRUDModel<T>
   extends ICRUDModelCreator<T>, ICRUDModelReader<T>, ICRUDModelUpdater<T>,
   ICRUDModelDeleter { }
+
+export interface ICRUDLogin {
+  findByEmail(email: string): Promise<IUser | null>,
+}

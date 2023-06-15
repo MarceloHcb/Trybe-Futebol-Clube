@@ -1,16 +1,16 @@
 import * as express from 'express';
-import router from './routes';
+import teamRouter from './routes/team.routes';
 
 class App {
   public app: express.Express;
 
   constructor() {
     this.app = express();
-    this.routes();
     this.config();
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
+    this.routes();
   }
 
   private config():void {
@@ -26,7 +26,7 @@ class App {
   }
 
   private routes(): void {
-    this.app.use(router);
+    this.app.use('/teams', teamRouter);
   }
 
   public start(PORT: string | number): void {

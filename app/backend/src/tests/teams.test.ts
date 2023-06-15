@@ -1,6 +1,6 @@
 import * as sinon from 'sinon';
 import * as chai from 'chai';
-import  SequelizeTeam  from '../database/models/SequelizeTeams';
+import  SequelizeTeam  from '../database/models/SequelizeTeam';
 import { teamsMock } from './mocks/teamsMock';
 // @ts-ignore
 import chaiHttp = require('chai-http');

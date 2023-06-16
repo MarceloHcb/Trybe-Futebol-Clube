@@ -6,6 +6,7 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import SequelizeTeams from './SequelizeTeam';
 
 class SequelizeMatches extends Model<InferAttributes<SequelizeMatches>,
 InferCreationAttributes<SequelizeMatches>> {
@@ -14,7 +15,7 @@ InferCreationAttributes<SequelizeMatches>> {
   declare homeTeamGoals: number;
   declare awayTeamId: number;
   declare awayTeamGoals: number;
-  declare inProgress: boolean;
+  declare inProgress: CreationOptional<boolean>;
 }
 
 SequelizeMatches.init({
@@ -42,13 +43,27 @@ SequelizeMatches.init({
   },
   inProgress: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: true,
   },
 }, {
   sequelize: db,
   modelName: 'matches',
   timestamps: false,
   underscored: true,
+});
+
+SequelizeTeams.hasMany(SequelizeMatches, {
+  foreignKey: 'id',
+  as: 'matches',
+});
+SequelizeMatches.belongsTo(SequelizeTeams, {
+  foreignKey: 'homeTeamId',
+  as: 'homeTeam',
+});
+SequelizeMatches.belongsTo(SequelizeTeams, {
+  foreignKey: 'awayTeamId',
+  as: 'awayTeam',
 });
 
 export default SequelizeMatches;

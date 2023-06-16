@@ -32,9 +32,4 @@ SequelizeTeams.init({
   underscored: true,
 });
 
-// SequelizeTeams.hasMany(SequelizeMatches, {
-//   foreignKey: 'teamId',
-//   as: 'matches',
-// });
-
 export default SequelizeTeams;

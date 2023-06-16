@@ -5,6 +5,7 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 import SequelizeUser from '../database/models/SequelizeUser';
 import JWT from '../utils/JWT';
+import Validations from '../middlewares/Validations';
 
 chai.use(chaiHttp);
 const { expect } = chai;
@@ -49,5 +50,5 @@ describe('Login tests na rota /login', () => {
     .send({ email: 'admin@admin.com', password: '' });
     expect(status).to.be.equal(400);
     expect(body.message).to.be.equal('All fields must be filled');
-  });
+  }); 
 });

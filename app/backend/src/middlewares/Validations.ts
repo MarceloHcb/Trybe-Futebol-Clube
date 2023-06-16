@@ -18,6 +18,6 @@ export default class Validations {
     if (validToken === 'Token must be a valid token') {
       return res.status(401).json({ message: validToken });
     }
-    next();
+    return next();
   }
 }

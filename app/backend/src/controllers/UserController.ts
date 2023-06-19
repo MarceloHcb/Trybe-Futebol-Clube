@@ -6,7 +6,6 @@ import UserService from '../services/UserService';
 interface CustomRequest extends Request {
   payload?: JwtPayload & { role?: string };
 }
-
 export default class UserController {
   constructor(
     private userService = new UserService(),

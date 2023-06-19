@@ -7,13 +7,11 @@ import { ITeamModelCreator } from '../Interfaces/teams/ITeamModel';
 
 export default class MatchService {
   constructor(
-    // private matchModel: IMatchModel = new Match(),
     private matchModel: IMatchModel = new Match(),
     private teamModel: ITeamModelCreator = new Teams(),
-
   ) { }
 
-  async findAllMatches(progress: boolean):Promise<ServiceResponse<unknown>> {
+  async findAllMatches(progress: boolean):Promise<ServiceResponse<IMatch[]>> {
     const match = await this.matchModel.findAllMatches(progress);
     return { status: 'SUCCESSFUL', data: match };
   }

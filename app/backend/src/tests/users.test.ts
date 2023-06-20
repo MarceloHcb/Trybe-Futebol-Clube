@@ -5,7 +5,6 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 import SequelizeUser from '../database/models/SequelizeUser';
 import JWT from '../utils/JWT';
-import Validations from '../middlewares/Validations';
 
 chai.use(chaiHttp);
 const { expect } = chai;

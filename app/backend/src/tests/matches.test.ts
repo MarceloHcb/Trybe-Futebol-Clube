@@ -6,7 +6,6 @@ import { app } from '../app';
 
 import SequelizeMatch from '../database/models/SequelizeMatch';
 import JWT from '../utils/JWT';
-import Validations from '../middlewares/Validations';
 import { matchesMock } from './mocks/matchesMock';
 
 chai.use(chaiHttp);
